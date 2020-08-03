@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+  "name": "下载当前页所有图片",
+  "version": "1.0",
+  "description": "下载图片",
+  "author": "king",
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/content-script.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "inject.js"
+  ],
+  "permissions": [
+    "downloads",
+    "contextMenus",
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
